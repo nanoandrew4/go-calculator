@@ -1,4 +1,4 @@
-package src
+package calculator
 
 import (
 	"runtime/debug"
@@ -86,7 +86,7 @@ func TestCalculator(t *testing.T) {
 				}
 			}()
 
-			calculatedResult, err := calculate(testStr)
+			calculatedResult, err := Calculate(testStr)
 			if err != nil {
 				t.Errorf("%s failed with error: %s", testStr, err.Error())
 			}
