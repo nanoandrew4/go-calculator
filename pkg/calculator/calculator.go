@@ -1,4 +1,4 @@
-package src
+package calculator
 
 import (
 	"errors"
@@ -13,7 +13,7 @@ var (
 	invalidNumOfParenthesisErr = errors.New("unclosed parenthesis")
 )
 
-func calculate(strToCalculate string) (string, error) {
+func Calculate(strToCalculate string) (string, error) {
 	var numberStartIdx = -1
 	var nextNumberNegative, lastTokenWasNumber, lastTokenWasFactorial bool
 	var numbers []float64
@@ -58,28 +58,6 @@ func calculate(strToCalculate string) (string, error) {
 			}
 			lastTokenWasFactorial = true
 			idx++
-		} else if c == '|' {
-			//if lastTokenWasNumber || lastTokenWasFactorial {
-			//	ops = append(ops, '*')
-			//}
-			//
-			//lastTokenWasNumber = false
-			//lastTokenWasFactorial = false
-			//
-			//var nestedAbsoluteValues int
-			//for pIdx := idx + 1; pIdx < len(strToCalculate); pIdx++ {
-			//	if isNumber(strToCalculate[pIdx]) {
-			//		lastTokenWasNumber = true
-			//	} else if lastTokenWasNumber && strToCalculate[pIdx] == '|' {
-			//		if nestedAbsoluteValues == 0 {
-			//			// evaluate
-			//		} else {
-			//			nestedAbsoluteValues--
-			//		}
-			//	} else if !lastTokenWasNumber &&
-			//}
-			//
-			//lastTokenWasNumber = false
 		} else if c == '(' {
 			if lastTokenWasNumber || lastTokenWasFactorial {
 				ops = append(ops, '*')
@@ -101,7 +79,7 @@ func calculate(strToCalculate string) (string, error) {
 				}
 			}
 			if numOfMatchedParenthesis == 1 {
-				resultFromParenthesis, err := calculate(strToCalculate[idx+1 : closingParenthesisIdx])
+				resultFromParenthesis, err := Calculate(strToCalculate[idx+1 : closingParenthesisIdx])
 				if err != nil {
 					return "", err
 				}

@@ -1,4 +1,4 @@
-package src
+package calculator
 
 import (
 	"errors"
@@ -19,7 +19,7 @@ func TestCalculatorErrors(t *testing.T) {
 	}
 
 	for testStr, expectedErr := range testsToRun {
-		calculatedResult, err := calculate(testStr)
+		calculatedResult, err := Calculate(testStr)
 		if calculatedResult != "" {
 			t.Fatalf("%s expected not to return anything, returned: %s", testStr, calculatedResult)
 		}
