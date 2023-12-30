@@ -15,7 +15,7 @@ var (
 )
 
 func init() {
-	functions.HTTP("Calculate", calculate)
+	functions.HTTP("calculate", calculate)
 }
 
 func mustMarshal(entityToMarshal any) string {
