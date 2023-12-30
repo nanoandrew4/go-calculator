@@ -23,7 +23,6 @@ jobs:
       with:
         name: 'calculate'
         runtime: 'go121'
-        source_dir: cloud
         entry_point: calculate
         region: us-east1
         max_instances: 4
